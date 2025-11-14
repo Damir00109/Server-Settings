@@ -1,0 +1,308 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0fff0 0%, #e0f7e0 100%);
+    color: #2e8b57;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.properties-container {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 100, 0, 0.1);
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.properties-list {
+    display: grid;
+    gap: 15px;
+}
+
+.property-group {
+    background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid #90ee90;
+    transition: all 0.3s ease;
+}
+
+.property-group:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
+}
+
+.property-group h3 {
+    color: #2e8b57;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #98fb98;
+    padding-bottom: 5px;
+}
+
+.property-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.property-item:hover {
+    background: #f0fff0;
+}
+
+.property-label {
+    flex: 1;
+    font-weight: bold;
+    color: #2e8b57;
+    min-width: 250px;
+}
+
+.property-control {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.property-control input[type="text"],
+.property-control input[type="number"],
+.property-control input[type="password"],
+.property-control select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #90ee90;
+    border-radius: 6px;
+    background: white;
+    color: #2e8b57;
+    font-weight: bold;
+    transition: border-color 0.3s ease;
+}
+
+.property-control input:focus,
+.property-control select:focus {
+    outline: none;
+    border-color: #32cd32;
+    box-shadow: 0 0 0 3px rgba(50, 205, 50, 0.1);
+}
+
+/* Специальные стили для поля пароля */
+.property-control input[type="password"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+}
+
+.property-control input[type="password"]::placeholder {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: normal;
+}
+
+/* Стили для чекбоксов */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-label {
+    font-weight: bold;
+    color: #2e8b57;
+}
+
+.checkbox-custom {
+    width: 50px;
+    height: 26px;
+    background: #ccc;
+    border-radius: 13px;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.checkbox-custom::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]:checked + .checkbox-custom {
+    background: #32cd32;
+}
+
+input[type="checkbox"]:checked + .checkbox-custom::after {
+    transform: translateX(24px);
+}
+
+/* Стили для кнопок типа мира, сложности и режима игры */
+.world-type-buttons,
+.difficulty-buttons,
+.gamemode-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.world-type-btn,
+.difficulty-btn,
+.gamemode-btn {
+    padding: 12px;
+    border: 2px solid #90ee90;
+    border-radius: 8px;
+    background: white;
+    color: #2e8b57;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.world-type-btn:hover,
+.difficulty-btn:hover,
+.gamemode-btn:hover {
+    background: #f0fff0;
+    transform: translateY(-2px);
+}
+
+.world-type-btn.active,
+.difficulty-btn.active,
+.gamemode-btn.active {
+    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
+    border-color: #32cd32;
+    color: #2e8b57;
+    box-shadow: 0 4px 12px rgba(0, 100, 0, 0.2);
+}
+
+/* Стили для компактных строк с несколькими настройками */
+.compact-row-item {
+    justify-content: center !important;
+}
+
+.compact-row {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    justify-content: center;
+}
+
+.compact-row.triple {
+    gap: 20px;
+}
+
+.compact-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.compact-label {
+    font-weight: bold;
+    color: #2e8b57;
+    min-width: auto;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-save {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #2e8b57;
+    background: linear-gradient(135deg, #98fb98 0%, #90ee90 100%);
+    width: 100%;
+    border: 2px solid #32cd32;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #90ee90 0%, #98fb98 100%);
+}
+
+.status-bar {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border-top: 3px solid #32cd32;
+    box-shadow: 0 -2px 8px rgba(0, 100, 0, 0.1);
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#pathInfo {
+    font-weight: bold;
+    color: #2e8b57;
+    word-break: break-all;
+    font-size: 12px;
+}
+
+#statusMessage {
+    color: #2e8b57;
+}
+
+/* Стили для скроллбара */
+.properties-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.properties-container::-webkit-scrollbar-track {
+    background: #f0fff0;
+    border-radius: 4px;
+}
+
+.properties-container::-webkit-scrollbar-thumb {
+    background: #90ee90;
+    border-radius: 4px;
+}
+
+.properties-container::-webkit-scrollbar-thumb:hover {
+    background: #32cd32;
+}
+
+/* Группировка свойств */
+.property-group:nth-child(even) {
+    border-left-color: #98fb98;
+}
+
+.property-group:nth-child(odd) {
+    border-left-color: #32cd32;
+}
